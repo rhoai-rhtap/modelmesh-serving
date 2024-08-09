@@ -21,8 +21,8 @@
 # Stage 1: Run the go build with go compiler native to the build platform
 # https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/
 ###############################################################################
-ARG DEV_IMAGE
-FROM ${DEV_IMAGE} AS build
+ARG DEV_IMAGE=FROM registry.redhat.io/ubi8/go-toolset:1.19 as build
+FROM FROM registry.redhat.io/ubi8/go-toolset:1.19 as build
 
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 # don't provide "default" values (e.g. 'ARG TARGETARCH=amd64') for non-buildx environments,
@@ -41,9 +41,7 @@ COPY pkg/ pkg/
 COPY version /etc/modelmesh-version
 
 # Build using native go compiler from BUILDPLATFORM but compiled output for TARGETPLATFORM
-RUN --mount=type=cache,target=/root/.cache/go-build \
-    --mount=type=cache,target=/go/pkg \
-    GOOS=${TARGETOS:-linux} \
+RUN GOOS=${TARGETOS:-linux} \
     GOARCH=${TARGETARCH:-amd64} \
     CGO_ENABLED=0 \
     GO111MODULE=on \
