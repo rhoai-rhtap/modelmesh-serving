@@ -21,7 +21,7 @@
 # Stage 1: Run the go build with go compiler native to the build platform
 # https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/
 ###############################################################################
-ARG DEV_IMAGE=FROM registry.redhat.io/ubi8/go-toolset:1.19 as build
+ARG DEV_IMAGE=registry.redhat.io/ubi8/go-toolset:1.19
 FROM registry.redhat.io/ubi8/go-toolset:1.19 as build
 
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
