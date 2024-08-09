@@ -22,7 +22,7 @@
 # https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/
 ###############################################################################
 ARG DEV_IMAGE=FROM registry.redhat.io/ubi8/go-toolset:1.19 as build
-FROM FROM registry.redhat.io/ubi8/go-toolset:1.19 as build
+FROM registry.redhat.io/ubi8/go-toolset:1.19 as build
 
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 # don't provide "default" values (e.g. 'ARG TARGETARCH=amd64') for non-buildx environments,
