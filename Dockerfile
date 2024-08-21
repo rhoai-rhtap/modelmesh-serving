@@ -92,9 +92,7 @@ COPY pkg/ pkg/
 COPY version /etc/modelmesh-version
 
 # Build using native go compiler from BUILDPLATFORM but compiled output for TARGETPLATFORM
-RUN --mount=type=cache,target=/root/.cache/go-build \
-    --mount=type=cache,target=/go/pkg \
-    GOOS=${TARGETOS:-linux} \
+RUN GOOS=${TARGETOS:-linux} \
     GOARCH=${TARGETARCH:-amd64} \
     CGO_ENABLED=0 \
     GO111MODULE=on \
