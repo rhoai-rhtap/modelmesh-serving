@@ -91,6 +91,8 @@ COPY generated/ generated/
 COPY pkg/ pkg/
 COPY version /etc/modelmesh-version
 
+USER root
+
 COPY go.mod go.mod
 COPY go.sum go.sum
 RUN go mod download
