@@ -91,6 +91,10 @@ COPY generated/ generated/
 COPY pkg/ pkg/
 COPY version /etc/modelmesh-version
 
+COPY go.mod go.mod
+COPY go.sum go.sum
+RUN go mod download
+
 # Build using native go compiler from BUILDPLATFORM but compiled output for TARGETPLATFORM
 RUN GOOS=${TARGETOS:-linux} \
     GOARCH=${TARGETARCH:-amd64} \
