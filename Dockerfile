@@ -25,7 +25,7 @@ RUN go mod download
 
 # Build using native go compiler from BUILDPLATFORM but compiled output for TARGETPLATFORM
 RUN --mount=type=cache,target=/root/.cache/go-build \
-    --mount=type=cache,target=/go/pkg
+    --mount=type=cache,target=/go/pkg \
     GOOS=${TARGETOS:-linux} \
     GOARCH=${TARGETARCH:-amd64} \
     CGO_ENABLED=0 \
