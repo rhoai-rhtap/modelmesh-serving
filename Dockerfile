@@ -24,7 +24,9 @@ COPY go.sum go.sum
 RUN go mod download
 
 # Build using native go compiler from BUILDPLATFORM but compiled output for TARGETPLATFORM
-RUN GOOS=${TARGETOS:-linux} \
+RUN --mount=type=cache,target=/root/.cache/go-build \
+    --mount=type=cache,target=/go/pkg
+    GOOS=${TARGETOS:-linux} \
     GOARCH=${TARGETARCH:-amd64} \
     CGO_ENABLED=0 \
     GO111MODULE=on \
