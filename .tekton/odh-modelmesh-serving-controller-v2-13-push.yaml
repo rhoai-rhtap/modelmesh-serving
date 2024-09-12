@@ -22,11 +22,13 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhoai-tenant/rhoai-v2-13/odh-modelmesh-serving-controller-v2-13:{{revision}}
+    value: quay.io/rhoai/odh-modelmesh-serving-controller:{{revision}}
   - name: dockerfile
     value: Dockerfile
   - name: path-context
     value: .
+  - name: prefetch-input
+    value: '{"type": "gomod", "path": "."}'
   pipelineSpec:
     finally:
     - name: show-sbom
@@ -93,7 +95,7 @@ spec:
       description: Skip checks against built image
       name: skip-checks
       type: string
-    - default: "false"
+    - default: "true"
       description: Execute the build with network isolation
       name: hermetic
       type: string
