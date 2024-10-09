@@ -1,6 +1,6 @@
 ARG DEV_IMAGE=registry.redhat.io/ubi8/go-toolset:1.21
 
-FROM registry.access.redhat.com/ubi8/go-toolset@sha256:4ec05fd5b355106cc0d990021a05b71bbfb9231e4f5bdc0c5316515edf6a1c96 AS build
+FROM registry.redhat.io/ubi9/go-toolset@sha256:fd41c001abc243076cc28b63c409ae6d9cbcad401c8124fb67d20fe57a2aa63a AS build
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 # don't provide "default" values (e.g. 'ARG TARGETARCH=amd64') for non-buildx environments,
 # see https://github.com/docker/buildx/issues/510
@@ -33,7 +33,7 @@ RUN GOOS=${TARGETOS:-linux} \
 ###############################################################################
 # Stage 2: Copy build assets to create the smallest final runtime image
 ###############################################################################
-FROM registry.access.redhat.com/ubi8/ubi-minimal:latest AS runtime
+FROM registry.redhat.io/ubi8/ubi-minimal:latest AS runtime
 
 ARG USER=2000
 ARG IMAGE_VERSION
