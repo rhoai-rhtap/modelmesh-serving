@@ -1,9 +1,7 @@
-ARG DEV_IMAGE=registry.redhat.io/ubi8/go-toolset:1.21
+#go-toolset:1.21
 
-FROM registry.redhat.io/ubi9/go-toolset@sha256:fd41c001abc243076cc28b63c409ae6d9cbcad401c8124fb67d20fe57a2aa63a AS build
-# https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
-# don't provide "default" values (e.g. 'ARG TARGETARCH=amd64') for non-buildx environments,
-# see https://github.com/docker/buildx/issues/510
+FROM registry.redhat.io/ubi9/go-toolset:1.21@sha256:d73c4151518c73332717a52f5d22c670bf2f88e04a841e507aef0227b3100225 AS build
+
 ARG TARGETOS=linux
 ARG TARGETARCH=amd64
 
@@ -33,18 +31,14 @@ RUN GOOS=${TARGETOS:-linux} \
 ###############################################################################
 # Stage 2: Copy build assets to create the smallest final runtime image
 ###############################################################################
-FROM registry.redhat.io/ubi8/ubi-minimal:latest AS runtime
+#ubi-minimal:latest
+FROM registry.redhat.io/ubi8/ubi-minimal@sha256:cf095e5668919ba1b4ace3888107684ad9d587b1830d3eb56973e6a54f456e67 AS runtime
 
 ARG USER=2000
 ARG IMAGE_VERSION
 ARG COMMIT_SHA
 
-LABEL name="modelmesh-serving-controller" \
-      version="${IMAGE_VERSION}" \
-      release="${COMMIT_SHA}" \
-      summary="Kubernetes controller for ModelMesh Serving components" \
-      description="Manages lifecycle of ModelMesh Serving Custom Resources and associated Kubernetes resources"
-      
+
 ## Install additional packages
 RUN microdnf install -y shadow-utils &&\
     microdnf clean all
@@ -52,7 +46,7 @@ RUN microdnf install -y shadow-utils &&\
 USER ${USER}
 
 WORKDIR /
-COPY --from=0 /workspace/manager .
+COPY --from=build /workspace/manager .
 
 COPY config/internal config/internal
 
