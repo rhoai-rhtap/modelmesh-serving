@@ -9,7 +9,7 @@ require (
 	github.com/google/go-cmp v0.6.0
 	github.com/kserve/kserve v0.12.0
 	github.com/manifestival/controller-runtime-client v0.4.0
-	github.com/manifestival/manifestival v0.7.1
+	github.com/manifestival/manifestival v0.7.2
 	github.com/moverest/mnist v0.0.0-20160628192128-ec5d9d203b59
 	github.com/onsi/ginkgo/v2 v2.13.0
 	github.com/onsi/gomega v1.30.0
