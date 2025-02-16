@@ -616,8 +616,8 @@ github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69
 github.com/tidwall/pretty v1.0.0/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20170815181823-89b8d40f7ca8/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
-github.com/tommy351/goldga v0.5.0 h1:dhnSuEWR9wYQyJinNB0kCr73+rqOQEkBV8MB8kAGFGY=
-github.com/tommy351/goldga v0.5.0/go.mod h1:WBU3/qw9l/4/Ip8WKixwLtoGede6YpAMKqr4Lt3TDZQ=
+github.com/tommy351/goldga v0.6.0 h1:Idvulg3q6y2pfq8ddhSiGTx1AOKHlFUmkKZh8dWsnOA=
+github.com/tommy351/goldga v0.6.0/go.mod h1:WBU3/qw9l/4/Ip8WKixwLtoGede6YpAMKqr4Lt3TDZQ=
 github.com/ugorji/go v1.1.4/go.mod h1:uQMGLiO92mf5W77hV/PUCpI3pbzQx3CRekS0kk+RGrc=
 github.com/urfave/cli v1.20.0/go.mod h1:70zkFmudgCuE/ngEzBv17Jvp/497gISqfk5gWijbERA=
 github.com/vektah/gqlparser v1.1.2/go.mod h1:1ycwN7Ij5njmMkPPAOaRFY4rET2Enx7IkVv3vaXspKw=
