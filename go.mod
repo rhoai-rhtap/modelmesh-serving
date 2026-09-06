@@ -1,12 +1,12 @@
 module github.com/kserve/modelmesh-serving
 
-go 1.21
+go 1.24.0
 
 require (
 	github.com/dereklstinson/cifar v0.0.0-20200421171932-5722a3b6a0c7
 	github.com/go-logr/logr v1.3.0
 	github.com/golang/protobuf v1.5.3
-	github.com/google/go-cmp v0.6.0
+	github.com/google/go-cmp v0.7.0
 	github.com/kserve/kserve v0.12.0
 	github.com/manifestival/controller-runtime-client v0.4.0
 	github.com/manifestival/manifestival v0.7.1
@@ -45,8 +45,7 @@ require (
 // indirect dependencies and run `go mod tidy -compat=1.21` (see go version above)
 require (
 	cloud.google.com/go v0.110.10 // indirect
-	cloud.google.com/go/compute v1.23.3 // indirect
-	cloud.google.com/go/compute/metadata v0.2.3 // indirect
+	cloud.google.com/go/compute/metadata v0.9.0 // indirect
 	cloud.google.com/go/iam v1.1.5 // indirect
 	cloud.google.com/go/storage v1.35.1 // indirect
 	github.com/BurntSushi/toml v1.0.0 // indirect
@@ -111,7 +110,7 @@ require (
 	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/net v0.21.0 // indirect
 	golang.org/x/oauth2 v0.14.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
+	golang.org/x/sys v0.35.0 // indirect
 	golang.org/x/term v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/time v0.4.0 // indirect
