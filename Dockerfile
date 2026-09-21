@@ -28,7 +28,7 @@ FROM ${DEV_IMAGE} AS build
 # don't provide "default" values (e.g. 'ARG TARGETARCH=amd64') for non-buildx environments,
 # see https://github.com/docker/buildx/issues/510
 ARG TARGETOS=linux
-ARG TARGETARCH=amd64
+ARG TARGETARCH=x86_64
 
 LABEL image="build"
 
